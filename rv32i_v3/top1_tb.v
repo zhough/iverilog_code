@@ -2,6 +2,14 @@
 
 module top1_tb;
 
+/*iverilog */
+initial
+begin            
+    $dumpfile("wave.vcd");        //生成的vcd文件名称
+    $dumpvars(0, top1_tb);    //tb模块名称
+end
+/*iverilog */
+
 reg clk, rst_n;
 initial begin
     clk = 1'b0;  // 初始值

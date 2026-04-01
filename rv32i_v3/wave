@@ -1,0 +1,75 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 10;
+:vpi_module "E:\iverilog\lib\ivl\system.vpi";
+:vpi_module "E:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "E:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "E:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "E:\iverilog\lib\ivl\va_math.vpi";
+S_000001be372f6fa0 .scope module, "testwave" "testwave" 2 2;
+ .timescale -9 -10;
+P_000001be3723e530 .param/l "SYSCLK_PERIOD" 0 2 17, +C4<00000000000000000000000000001010>;
+v000001be3733da20_0 .var "addr", 12 0;
+v000001be3733dac0_0 .var "clk", 0 0;
+v000001be3733db60_0 .net "ins", 31 0, L_000001be372f6000;  1 drivers
+E_000001be3723e5b0 .event posedge, v000001be3733dac0_0;
+S_000001be372f7130 .scope module, "uirom" "irom" 2 23, 3 1 0, S_000001be372f6fa0;
+ .timescale -9 -10;
+    .port_info 0 /INPUT 13 "a";
+    .port_info 1 /OUTPUT 32 "spo";
+L_000001be372f6000 .functor BUFZ 32, L_000001be3733dc00, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+v000001be37238e20_0 .net *"_ivl_0", 31 0, L_000001be3733dc00;  1 drivers
+v000001be372f72c0_0 .net *"_ivl_2", 14 0, L_000001be3733dca0;  1 drivers
+L_000001be3733dd48 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v000001be372f7360_0 .net *"_ivl_5", 1 0, L_000001be3733dd48;  1 drivers
+v000001be3733d840_0 .net "a", 12 0, v000001be3733da20_0;  1 drivers
+v000001be3733d8e0 .array "mem", 8192 0, 31 0;
+v000001be3733d980_0 .net "spo", 31 0, L_000001be372f6000;  alias, 1 drivers
+L_000001be3733dc00 .array/port v000001be3733d8e0, L_000001be3733dca0;
+L_000001be3733dca0 .concat [ 13 2 0 0], v000001be3733da20_0, L_000001be3733dd48;
+    .scope S_000001be372f7130;
+T_0 ;
+    %vpi_call 3 10 "$readmemh", "./hex/irom2.hex", v000001be3733d8e0 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_000001be372f6fa0;
+T_1 ;
+    %vpi_call 2 7 "$dumpfile", "wave.vcd" {0 0 0};
+    %vpi_call 2 8 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001be372f6fa0 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_000001be372f6fa0;
+T_2 ;
+    %delay 100000, 0;
+    %vpi_call 2 14 "$stop" {0 0 0};
+    %end;
+    .thread T_2;
+    .scope S_000001be372f6fa0;
+T_3 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001be3733dac0_0, 0, 1;
+    %pushi/vec4 0, 0, 13;
+    %store/vec4 v000001be3733da20_0, 0, 13;
+T_3.0 ;
+    %delay 50, 0;
+    %load/vec4 v000001be3733dac0_0;
+    %inv;
+    %store/vec4 v000001be3733dac0_0, 0, 1;
+    %jmp T_3.0;
+    %end;
+    .thread T_3;
+    .scope S_000001be372f6fa0;
+T_4 ;
+    %wait E_000001be3723e5b0;
+    %load/vec4 v000001be3733da20_0;
+    %addi 1, 0, 13;
+    %assign/vec4 v000001be3733da20_0, 0;
+    %jmp T_4;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testwave.v";
+    ".//irom.v";
