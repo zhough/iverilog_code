@@ -337,7 +337,7 @@ STORE u_store(
     .we (we_store)
 );
 
-blk_mem_gen_1 dram(
+dram u_dram(
     .clka (clk),
     .ena (1'b1),
     .wea (we),
