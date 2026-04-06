@@ -1,0 +1,2 @@
+IROM1.v,verilog,xil_defaultlib,../../../../digital_twin.gen/sources_1/ip/IROM1/sim/IROM1.v,incdir="../../../../../../Xilinx/2025.2/Vivado/data/rsb/busdef"
+glbl.v,Verilog,xil_defaultlib,glbl.v

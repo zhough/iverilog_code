@@ -10,6 +10,11 @@ begin
 end
 /*iverilog */
 
+initial begin
+    # 100000;  // 跑 10000 个时间单位后停止
+    $stop;   // 仿真停止
+end
+
 reg clk, rst_n;
 initial begin
     clk = 1'b0;  // 初始值
@@ -19,7 +24,7 @@ initial begin
 end
 initial begin
     rst_n = 0;
-    #2;
+    #6;
     rst_n = 1;
 end
 
@@ -27,7 +32,7 @@ end
 wire [12:0] pc_irom;
 wire [31:0] dout_irom;
 
-dist_irom u_irom(
+irom u_irom(
     .a (pc_irom),
     .spo (dout_irom)
 );
@@ -151,9 +156,9 @@ begin
     end
     else begin
         //curr_pc_if <= next_pc_if;
-        if (is_LAR_if) curr_pc_if = curr_pc_if;
+        if (is_LAR_if) curr_pc_if <= curr_pc_if;
         else begin
-            curr_pc_if = next_pc_if;
+            curr_pc_if <= next_pc_if;
         end 
     end
 end
@@ -162,7 +167,6 @@ end
 //译码
 reg [31:0] curr_pc_id_reg;
 reg is_LAR_reg;
-//reg jump_taken_reg, branch_taken_reg;
 wire [31:0] ins_if;
 reg [31:0] dout_irom_reg;
 assign ins_if = (is_LAR_reg) ? dout_irom_reg : 
@@ -172,19 +176,13 @@ begin
     if (!rst_n) begin
         ins <= 32'b0;
         curr_pc_id <= 32'b0;
-        curr_pc_id_reg <= 32'b0;
         is_LAR_reg <= 1'b0;
-        //jump_taken_reg <= 1'b0;
-        //branch_taken_reg <= 1'b0;
         dout_irom_reg <= 32'b0;
     end
     else begin
         is_LAR_reg <= is_LAR_if;
         dout_irom_reg <= dout_irom;
-        //jump_taken_reg <= jump_taken_if;
-        //branch_taken_reg <= branch_taken_if;
-        curr_pc_id_reg <= curr_pc_if;
-        curr_pc_id <= curr_pc_id_reg;
+        curr_pc_id <= curr_pc_if;
         if(~is_LAR_if) begin
             if(jump_taken_if | branch_taken_if) begin
                 ins <= 32'b0;
@@ -301,49 +299,24 @@ assign jump_target_if = jump_target_ex;
 
 
 //mem
-wire [3:0] we, we_store;
 wire [31:0] ram_dout, load_data_in;
-wire [31:0] load_data_out;
-wire [15:0] dram_addr;
-reg [15:0] last_dram_addr;
-reg [1:0] alu_result_mem_low2;
-reg [31:0] last_store_data;
+reg [31:0] load_data_out;
 reg [31:0] rs_result_mem;
 reg is_WAR2_reg;
-wire [1:0] alu_result_ex_low2;
+wire [2:0] mask;
+assign mask = (is_store) ? store_op_ex : load_op_ex;
 wire [31:0] ram_din;
 wire [31:0] store_data_in;
-wire is_SAL;    //store after laod标志位
-//地址偏移
-assign dram_addr = alu_result_ex[17:2];
-assign is_SAL = (is_store_mem & is_load & (dram_addr == last_dram_addr));   //load和上一条store指令操作同一地址
-assign load_data_in = is_SAL ? last_store_data : ram_dout;
-assign alu_result_ex_low2 = alu_result_ex[1:0];
-assign we = is_store ? we_store : 4'b0;
+wire [31:0] spo;
 assign store_data_in = is_WAR2_reg ? rs_result_mem : rs[rs2_ex];
 
-LOAD u_load(
-    .load_op (load_op_mem),
-    .load_data_in (load_data_in),
-    .addr_low2 (alu_result_mem_low2),
-    .load_data_out (load_data_out)
-);
-
-STORE u_store(
-    .store_op (store_op_ex),
-    .addr_low2 (alu_result_ex_low2),
-    .rs_data (store_data_in),
-    .ram_din (ram_din),
-    .we (we_store)
-);
-
 dram u_dram(
-    .clka (clk),
-    .ena (1'b1),
-    .wea (we),
-    .addra (dram_addr),
-    .dina (ram_din),
-    .douta (ram_dout)
+    .a (alu_result_ex),
+    .d (store_data_in),
+    .clk (clk),
+    .we (is_store),
+    .mask (mask),
+    .spo (spo)
 );
 
 always @(posedge clk or negedge rst_n)
@@ -355,10 +328,8 @@ begin
         rd_mem <= 5'b0;
         is_load_mem <= 1'b0;
         is_store_mem <= 1'b0;
-        alu_result_mem_low2 <= 2'b0;
-        last_dram_addr <= 12'b0;
-        last_store_data <= 32'b0;
         is_WAR2_reg <= 1'b0;
+        load_data_out <= 32'b0;
     end
     else begin
         load_op_mem <= load_op_ex;
@@ -367,10 +338,8 @@ begin
         rd_mem <= rd_ex;
         is_load_mem <= is_load;
         is_store_mem <= is_store;
-        alu_result_mem_low2 <= alu_result_ex_low2;
-        last_dram_addr <= dram_addr;
-        last_store_data <= ram_din;
         is_WAR2_reg <= is_WAR2;
+        load_data_out <= spo;
     end
 end
 assign wb_result = is_load_mem ? load_data_out : rs_result_mem;

@@ -1,0 +1,687 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Mon Apr  6 00:21:56 2026
+# Process ID         : 20400
+# Current directory  : E:/Vivado_code/digital_twin
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent31336 E:\Vivado_code\digital_twin\digital_twin.xpr
+# Log file           : E:/Vivado_code/digital_twin/vivado.log
+# Journal file       : E:/Vivado_code/digital_twin\vivado.jou
+# Running On         : ZHOU-1
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : 11th Gen Intel(R) Core(TM) i5-11260H @ 2.60GHz
+# CPU Frequency      : 2611 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 16893 MB
+# Swap memory        : 16874 MB
+# Total Virtual      : 33767 MB
+# Available Virtual  : 7761 MB
+#-----------------------------------------------------------
+start_gui
+open_project E:/Vivado_code/digital_twin/digital_twin.xpr
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:emb-plus-vpr-4616:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\emb-plus-vpr-4616\1.0\board.xml as part xcve2302-sfva784-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:emb-plus-vpr-4616:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\emb-plus-vpr-4616\1.1\board.xml as part xcve2302-sfva784-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24c:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24c\1.0\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24c:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24c\1.1\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24i:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24i\1.0\board.xml as part xck24-ubva530-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.2 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.2\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.3 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.3\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.4 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.4\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.2 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26i\1.2\board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.3 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26i\1.3\board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.4 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26i\1.4\board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu116:part0:1.4 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu116\1.4\board.xml as part xcku5p-ffvb676-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu116:part0:1.5 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu116\1.5\board.xml as part xcku5p-ffvb676-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kd240_som:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kd240_som\1.0\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kd240_som:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kd240_som\1.1\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kr260_som:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kr260_som\1.0\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kr260_som:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kr260_som\1.1\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260_som:part0:1.2 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kv260_som\1.2\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260_som:part0:1.3 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kv260_som\1.3\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260_som:part0:1.4 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kv260_som\1.4\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:scu35:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\scu35\1.0\board.xml as part xcsu35p-sbvb625-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:sp701:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\sp701\1.0\board.xml as part xc7s100fgga676-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:sp701:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\sp701\1.1\board.xml as part xc7s100fgga676-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.4 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vc707\1.4\board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.5 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vc707\1.5\board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc709:part0:1.8 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vc709\1.8\board.xml as part xc7vx690tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.6 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu108\1.6\board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.7 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu108\1.7\board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu110:part0:1.4 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu110\1.4\board.xml as part xcvu190-flgc2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu129:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu129\production\1.0\board.xml as part xcvu29p-fsga2577-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek280\production\1.0\board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek280\production\1.1\board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.2 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek280\production\1.2\board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek385:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek385\1.0\board.xml as part xc2ve3858-ssva2112-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek385:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek385\1.1\board.xml as part xc2ve3858-ssva2112-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek385_1:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek385_2\1.0\board.xml as part xc2ve3858-ssva2112-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_rfsoc:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vermeo_t1_rfsoc\1.0\board.xml as part xczu21dr-ffvd1156-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vhk158\production\1.0\board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vhk158\production\1.1\board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.2 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vhk158\production\1.2\board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk180\production\1.0\board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk180\production\1.1\board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.2 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk180\production\1.2\board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vrk160:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vrk160\1.0\board.xml as part xcvr1602-vsva2488-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vrk160:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vrk160\1.1\board.xml as part xcvr1602-vsva2488-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.2 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu111\1.2\board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.3 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu111\1.3\board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.4 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu111\1.4\board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1275:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu1275\1.0\board.xml as part xczu29dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1285:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu1285\1.0\board.xml as part xczu39dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208:part0:2.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu208\production\2.0\board.xml as part xczu48dr-fsvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu208ld\production\2.0\board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu216\production\2.0\board.xml as part xczu49dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu216ld\production\2.0\board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu670\2.0\board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu670ld\1.0\board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+Scanning sources...
+Finished scanning sources
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:emb-plus-vpr-4616:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\emb-plus-vpr-4616\1.0\board.xml as part xcve2302-sfva784-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:emb-plus-vpr-4616:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\emb-plus-vpr-4616\1.1\board.xml as part xcve2302-sfva784-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24c:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24c\1.0\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24c:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24c\1.1\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24i:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24i\1.0\board.xml as part xck24-ubva530-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.2 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.2\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.3 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.3\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.4 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.4\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.2 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26i\1.2\board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.3 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26i\1.3\board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.4 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26i\1.4\board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu116:part0:1.4 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu116\1.4\board.xml as part xcku5p-ffvb676-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu116:part0:1.5 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu116\1.5\board.xml as part xcku5p-ffvb676-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kd240_som:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kd240_som\1.0\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kd240_som:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kd240_som\1.1\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kr260_som:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kr260_som\1.0\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kr260_som:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kr260_som\1.1\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260_som:part0:1.2 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kv260_som\1.2\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260_som:part0:1.3 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kv260_som\1.3\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260_som:part0:1.4 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kv260_som\1.4\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:scu35:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\scu35\1.0\board.xml as part xcsu35p-sbvb625-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:sp701:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\sp701\1.0\board.xml as part xc7s100fgga676-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:sp701:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\sp701\1.1\board.xml as part xc7s100fgga676-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.4 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vc707\1.4\board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.5 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vc707\1.5\board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc709:part0:1.8 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vc709\1.8\board.xml as part xc7vx690tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.6 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu108\1.6\board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.7 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu108\1.7\board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu110:part0:1.4 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu110\1.4\board.xml as part xcvu190-flgc2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu129:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu129\production\1.0\board.xml as part xcvu29p-fsga2577-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek280\production\1.0\board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek280\production\1.1\board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.2 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek280\production\1.2\board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek385:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek385\1.0\board.xml as part xc2ve3858-ssva2112-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek385:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek385\1.1\board.xml as part xc2ve3858-ssva2112-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek385_1:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek385_2\1.0\board.xml as part xc2ve3858-ssva2112-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_rfsoc:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vermeo_t1_rfsoc\1.0\board.xml as part xczu21dr-ffvd1156-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vhk158\production\1.0\board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vhk158\production\1.1\board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.2 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vhk158\production\1.2\board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk180\production\1.0\board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.1 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk180\production\1.1\board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.2 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk180\production\1.2\board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vrk160:part0:1.0 available at E:/Xilinx/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vrk160\1.0\board.xml as part xcvr1602-vsva2488-2mp-e-s-es1 specified in board_part file is either invalid or not available
+INFO: [Common 17-14] Message 'Board 49-26' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Project 1-5713] Board part '' set for the project  is not found. BoardPart property will be unset. Please select board from latest repo build 
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/2025.2/Vivado/data/ip'.
+WARNING: [IP_Flow 19-2162] IP 'IROM' is locked:
+* IP definition 'Distributed Memory Generator (8.0)' for IP 'IROM' (customized with software release 2023.2) has a different revision in the IP Catalog.
+WARNING: [IP_Flow 19-2162] IP 'DRAM' is locked:
+* IP definition 'Distributed Memory Generator (8.0)' for IP 'DRAM' (customized with software release 2023.2) has a different revision in the IP Catalog.
+open_project: Time (s): cpu = 00:00:27 ; elapsed = 00:00:11 . Memory (MB): peak = 1801.477 ; gain = 268.117
+update_compile_order -fileset sources_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\new\myCPU.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\student_top.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\student_top.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\student_top.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\new\myCPU.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\student_top.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\new\myCPU.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\new\myCPU.sv:]
+update_compile_order -fileset sources_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\new\myCPU.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\student_top.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\new\myCPU.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\new\myCPU.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\new\myCPU.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\student_top.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+import_files -norecurse {E:/iverilog_code/rv32i_v3/ID.v E:/iverilog_code/rv32i_v3/IF.v E:/iverilog_code/rv32i_v3/dram.v E:/iverilog_code/rv32i_v3/EX.v E:/iverilog_code/rv32i_v3/WB.v E:/iverilog_code/rv32i_v3/core_cpu1.v}
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\new\myCPU.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\student_top.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\student_top.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\student_top.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\new\myCPU.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\student_top.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\new\myCPU.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\new\myCPU.sv:]
+update_compile_order -fileset sources_1
+CRITICAL WARNING: [IP_Flow 19-4309] IP 'IROM' is locked, parameter file paths could not be changed. Please ensure the IP is unlocked and retry the SaveAs/Import operation.
+update_compile_order -fileset sources_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\dram_driver.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\new\myCPU.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\student_top.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\dram_driver.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\dram_driver.sv:]
+ERROR: [Common 17-180] Spawn failed: 操作成功完成。
+
+CRITICAL WARNING: [IP_Flow 19-4309] IP 'IROM' is locked, parameter file paths could not be changed. Please ensure the IP is unlocked and retry the SaveAs/Import operation.
+create_ip -name dist_mem_gen -vendor xilinx.com -library ip -version 8.0 -module_name IROM1
+set_property -dict [list \
+  CONFIG.coefficient_file {E:/Vivado_code/digital_twin/coe/irom.coe} \
+  CONFIG.data_width {32} \
+  CONFIG.depth {4096} \
+  CONFIG.memory_type {rom} \
+] [get_ips IROM1]
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/Vivado_code/digital_twin/coe/irom.coe' provided. It will be converted relative to IP Instance files '../../../../coe/irom.coe'
+generate_target {instantiation_template} [get_files e:/Vivado_code/digital_twin/digital_twin.srcs/sources_1/ip/IROM1/IROM1.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'IROM1'...
+generate_target all [get_files  e:/Vivado_code/digital_twin/digital_twin.srcs/sources_1/ip/IROM1/IROM1.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'IROM1'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'IROM1'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'IROM1'...
+catch { config_ip_cache -export [get_ips -all IROM1] }
+export_ip_user_files -of_objects [get_files e:/Vivado_code/digital_twin/digital_twin.srcs/sources_1/ip/IROM1/IROM1.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] e:/Vivado_code/digital_twin/digital_twin.srcs/sources_1/ip/IROM1/IROM1.xci]
+launch_runs IROM1_synth_1 -jobs 6
+[Mon Apr  6 00:38:18 2026] Launched IROM1_synth_1...
+Run output will be captured here: E:/Vivado_code/digital_twin/digital_twin.runs/IROM1_synth_1/runme.log
+export_simulation -lib_map_path [list {modelsim=E:/Vivado_code/digital_twin/digital_twin.cache/compile_simlib/modelsim} {questa=E:/Vivado_code/digital_twin/digital_twin.cache/compile_simlib/questa} {riviera=E:/Vivado_code/digital_twin/digital_twin.cache/compile_simlib/riviera} {activehdl=E:/Vivado_code/digital_twin/digital_twin.cache/compile_simlib/activehdl}] -of_objects [get_files e:/Vivado_code/digital_twin/digital_twin.srcs/sources_1/ip/IROM1/IROM1.xci] -directory E:/Vivado_code/digital_twin/digital_twin.ip_user_files/sim_scripts -ip_user_files_dir E:/Vivado_code/digital_twin/digital_twin.ip_user_files -ipstatic_source_dir E:/Vivado_code/digital_twin/digital_twin.ip_user_files/ipstatic -use_ip_compiled_libs -force -quiet
+ERROR: [Common 17-180] Spawn failed: 操作成功完成。
+
+update_compile_order -fileset sources_1
+INFO: [Device 21-403] Loading part xc7k325tffg900-2
+CRITICAL WARNING: [IP_Flow 19-4309] IP 'DRAM' is locked, parameter file paths could not be changed. Please ensure the IP is unlocked and retry the SaveAs/Import operation.
+create_ip -name dist_mem_gen -vendor xilinx.com -library ip -version 8.0 -module_name DRAM1
+set_property -dict [list \
+  CONFIG.coefficient_file {E:/Vivado_code/digital_twin/coe/dram.coe} \
+  CONFIG.data_width {32} \
+  CONFIG.depth {65536} \
+] [get_ips DRAM1]
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/Vivado_code/digital_twin/coe/dram.coe' provided. It will be converted relative to IP Instance files '../../../../coe/dram.coe'
+generate_target {instantiation_template} [get_files e:/Vivado_code/digital_twin/digital_twin.srcs/sources_1/ip/DRAM1/DRAM1.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'DRAM1'...
+generate_target all [get_files  e:/Vivado_code/digital_twin/digital_twin.srcs/sources_1/ip/DRAM1/DRAM1.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'DRAM1'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'DRAM1'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'DRAM1'...
+catch { config_ip_cache -export [get_ips -all DRAM1] }
+export_ip_user_files -of_objects [get_files e:/Vivado_code/digital_twin/digital_twin.srcs/sources_1/ip/DRAM1/DRAM1.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] e:/Vivado_code/digital_twin/digital_twin.srcs/sources_1/ip/DRAM1/DRAM1.xci]
+launch_runs DRAM1_synth_1 -jobs 6
+[Mon Apr  6 00:48:18 2026] Launched DRAM1_synth_1...
+Run output will be captured here: E:/Vivado_code/digital_twin/digital_twin.runs/DRAM1_synth_1/runme.log
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+export_simulation -lib_map_path [list {modelsim=E:/Vivado_code/digital_twin/digital_twin.cache/compile_simlib/modelsim} {questa=E:/Vivado_code/digital_twin/digital_twin.cache/compile_simlib/questa} {riviera=E:/Vivado_code/digital_twin/digital_twin.cache/compile_simlib/riviera} {activehdl=E:/Vivado_code/digital_twin/digital_twin.cache/compile_simlib/activehdl}] -of_objects [get_files e:/Vivado_code/digital_twin/digital_twin.srcs/sources_1/ip/DRAM1/DRAM1.xci] -directory E:/Vivado_code/digital_twin/digital_twin.ip_user_files/sim_scripts -ip_user_files_dir E:/Vivado_code/digital_twin/digital_twin.ip_user_files -ipstatic_source_dir E:/Vivado_code/digital_twin/digital_twin.ip_user_files/ipstatic -use_ip_compiled_libs -force -quiet
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+update_compile_order -fileset sources_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+ERROR: [Common 17-180] Spawn failed: 操作成功完成。
+
+wait_on_run DRAM1_synth_1
+[Mon Apr  6 00:48:55 2026] Waiting for DRAM1_synth_1 to finish...
+[Mon Apr  6 00:49:00 2026] Waiting for DRAM1_synth_1 to finish...
+[Mon Apr  6 00:49:05 2026] Waiting for DRAM1_synth_1 to finish...
+[Mon Apr  6 00:49:10 2026] Waiting for DRAM1_synth_1 to finish...
+[Mon Apr  6 00:49:20 2026] Waiting for DRAM1_synth_1 to finish...
+[Mon Apr  6 00:49:30 2026] Waiting for DRAM1_synth_1 to finish...
+[Mon Apr  6 00:49:40 2026] Waiting for DRAM1_synth_1 to finish...
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+[Mon Apr  6 00:49:45 2026] Interrupt received
+
+*** Running vivado
+    with args -log DRAM1.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source DRAM1.tcl
+
+
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Mon Apr  6 00:48:21 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source DRAM1.tcl -notrace
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 602.176 ; gain = 219.812
+Command: synth_design -top DRAM1 -part xc7k325tffg900-2 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7k325t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k325t'
+INFO: [Device 21-403] Loading part xc7k325tffg900-2
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 20024
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1388.809 ; gain = 539.836
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'DRAM1' [e:/Vivado_code/digital_twin/digital_twin.gen/sources_1/ip/DRAM1/synth/DRAM1.vhd:69]
+	Parameter C_FAMILY bound to: kintex7 - type: string 
+	Parameter C_ADDR_WIDTH bound to: 16 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_DEPTH bound to: 65536 - type: integer 
+	Parameter C_HAS_CLK bound to: 1 - type: integer 
+	Parameter C_HAS_D bound to: 1 - type: integer 
+	Parameter C_HAS_DPO bound to: 0 - type: integer 
+	Parameter C_HAS_DPRA bound to: 0 - type: integer 
+	Parameter C_HAS_I_CE bound to: 0 - type: integer 
+	Parameter C_HAS_QDPO bound to: 0 - type: integer 
+	Parameter C_HAS_QDPO_CE bound to: 0 - type: integer 
+	Parameter C_HAS_QDPO_CLK bound to: 0 - type: integer 
+	Parameter C_HAS_QDPO_RST bound to: 0 - type: integer 
+	Parameter C_HAS_QDPO_SRST bound to: 0 - type: integer 
+	Parameter C_HAS_QSPO bound to: 0 - type: integer 
+	Parameter C_HAS_QSPO_CE bound to: 0 - type: integer 
+	Parameter C_HAS_QSPO_RST bound to: 0 - type: integer 
+	Parameter C_HAS_QSPO_SRST bound to: 0 - type: integer 
+	Parameter C_HAS_SPO bound to: 1 - type: integer 
+	Parameter C_HAS_WE bound to: 1 - type: integer 
+	Parameter C_MEM_INIT_FILE bound to: DRAM1.mif - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_MEM_TYPE bound to: 1 - type: integer 
+	Parameter C_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_QCE_JOINED bound to: 0 - type: integer 
+	Parameter C_QUALIFY_WE bound to: 0 - type: integer 
+	Parameter C_READ_MIF bound to: 1 - type: integer 
+	Parameter C_REG_A_D_INPUTS bound to: 0 - type: integer 
+	Parameter C_REG_DPRA_INPUT bound to: 0 - type: integer 
+	Parameter C_SYNC_ENABLE bound to: 1 - type: integer 
+	Parameter C_WIDTH bound to: 32 - type: integer 
+	Parameter C_PARSER_TYPE bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'dist_mem_gen_v8_0_17' declared at 'e:/Vivado_code/digital_twin/digital_twin.gen/sources_1/ip/DRAM1/hdl/dist_mem_gen_v8_0_vhsyn_rfs.vhd:3191' bound to instance 'U0' of component 'dist_mem_gen_v8_0_17' [e:/Vivado_code/digital_twin/digital_twin.gen/sources_1/ip/DRAM1/synth/DRAM1.vhd:135]
+INFO: [Synth 8-256] done synthesizing module 'DRAM1' (0#1) [e:/Vivado_code/digital_twin/digital_twin.gen/sources_1/ip/DRAM1/synth/DRAM1.vhd:69]
+INFO: [Synth 8-7129] Port qspo[31] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[30] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[29] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[28] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[27] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[26] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[25] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[24] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[23] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[22] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[21] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[20] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[19] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[18] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[17] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[16] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[15] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[14] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[13] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[12] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[11] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[10] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[9] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[8] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[7] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[6] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[5] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[4] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[3] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[2] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[1] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo[0] in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port i_ce in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo_ce in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo_rst in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port qspo_srst in module spram is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[31] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[30] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[29] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[28] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[27] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[26] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[25] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[24] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[23] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[22] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[21] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[20] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[19] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[18] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[17] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[16] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[15] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[14] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[13] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[12] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[11] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[10] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[9] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[8] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[7] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[6] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[5] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[4] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[3] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[2] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[1] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port dpo[0] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[31] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[30] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[29] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[28] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[27] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[26] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[25] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[24] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[23] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[22] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[21] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[20] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[19] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[18] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[17] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[16] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[15] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[14] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[13] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[12] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[11] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[10] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[9] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[8] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[7] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[6] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[5] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[4] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[3] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[2] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[1] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Synth 8-7129] Port qdpo[0] in module dist_mem_gen_v8_0_17_synth is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1949.562 ; gain = 1100.590
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1949.562 ; gain = 1100.590
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1949.562 ; gain = 1100.590
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1949.562 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [e:/Vivado_code/digital_twin/digital_twin.gen/sources_1/ip/DRAM1/DRAM1_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [e:/Vivado_code/digital_twin/digital_twin.gen/sources_1/ip/DRAM1/DRAM1_ooc.xdc] for cell 'U0'
+Parsing XDC File [E:/Vivado_code/digital_twin/digital_twin.runs/DRAM1_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [E:/Vivado_code/digital_twin/digital_twin.runs/DRAM1_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1949.562 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 1949.562 ; gain = 0.000
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1949.562 ; gain = 1100.590
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7k325tffg900-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1949.562 ; gain = 1100.590
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1949.562 ; gain = 1100.590
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1949.562 ; gain = 1100.590
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 840 (col length:140)
+BRAMs: 890 (col length: RAMB18 140 RAMB36 70)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1949.562 ; gain = 1100.590
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++------------+-----------------------------------------------------------+-----------+----------------------+-------------------+
+|Module Name | RTL Object                                                | Inference | Size (Depth x Width) | Primitives        | 
++------------+-----------------------------------------------------------+-----------+----------------------+-------------------+
+|U0          | synth_options.dist_mem_inst/gen_sp_ram.spram_inst/ram_reg | Implied   | 64 K x 32            | RAM256X1S x 8192  | 
++------------+-----------------------------------------------------------+-----------+----------------------+-------------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:46 . Memory (MB): peak = 1949.562 ; gain = 1100.590
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1949.562 ; gain = 1100.590
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++------------+-----------------------------------------------------------+-----------+----------------------+-------------------+
+|Module Name | RTL Object                                                | Inference | Size (Depth x Width) | Primitives        | 
++------------+-----------------------------------------------------------+-----------+----------------------+-------------------+
+|U0          | synth_options.dist_mem_inst/gen_sp_ram.spram_inst/ram_reg | Implied   | 64 K x 32            | RAM256X1S x 8192  | 
++------------+-----------------------------------------------------------+-----------+----------------------+-------------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:53 ; elapsed = 00:00:57 . Memory (MB): peak = 2100.449 ; gain = 1251.477
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:58 ; elapsed = 00:01:03 . Memory (MB): peak = 2117.223 ; gain = 1268.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:58 ; elapsed = 00:01:03 . Memory (MB): peak = 2117.223 ; gain = 1268.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:59 ; elapsed = 00:01:04 . Memory (MB): peak = 2117.223 ; gain = 1268.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:59 ; elapsed = 00:01:04 . Memory (MB): peak = 2117.223 ; gain = 1268.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:59 ; elapsed = 00:01:04 . Memory (MB): peak = 2117.223 ; gain = 1268.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:59 ; elapsed = 00:01:04 . Memory (MB): peak = 2117.223 ; gain = 1268.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |LUT4      |  4251|
+|2     |LUT6      |  6462|
+|3     |MUXF7     |  1088|
+|4     |MUXF8     |   544|
+|5     |RAM256X1S |  8192|
+|6     |FDRE      |    32|
++------+----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:59 ; elapsed = 00:01:04 . Memory (MB): peak = 2117.223 ; gain = 1268.250
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:44 ; elapsed = 00:01:02 . Memory (MB): peak = 2117.223 ; gain = 1268.250
+Synthesis Optimization Complete : Time (s): cpu = 00:00:59 ; elapsed = 00:01:04 . Memory (MB): peak = 2117.223 ; gain = 1268.250
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.421 . Memory (MB): peak = 2139.605 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 9824 Unisim elements for replacement
+wait_on_runs: Time (s): cpu = 00:00:08 ; elapsed = 00:00:50 . Memory (MB): peak = 2140.254 ; gain = 0.000
+INFO: [Common 17-344] 'wait_on_runs' was cancelled
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file E:/Vivado_code/digital_twin/digital_twin.srcs/utils_1/imports/synth_1/top.dcp with file E:/Vivado_code/digital_twin/digital_twin.runs/synth_1/top.dcp
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory E:/Vivado_code/digital_twin/digital_twin.runs/synth_1
+
+launch_runs synth_1 -jobs 6
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+[Mon Apr  6 00:50:06 2026] Launched DRAM1_synth_1...
+Run output will be captured here: E:/Vivado_code/digital_twin/digital_twin.runs/DRAM1_synth_1/runme.log
+[Mon Apr  6 00:50:06 2026] Launched synth_1...
+Run output will be captured here: E:/Vivado_code/digital_twin/digital_twin.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+[Mon Apr  6 00:52:21 2026] Launched synth_1...
+Run output will be captured here: E:/Vivado_code/digital_twin/digital_twin.runs/synth_1/runme.log
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\student_top.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\perip_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\new\student_top.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [E:\Vivado_code\digital_twin\digital_twin.srcs\sources_1\imports\rv32i_v3\dram.v:]
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+[Mon Apr  6 00:53:52 2026] Launched synth_1...
+Run output will be captured here: E:/Vivado_code/digital_twin/digital_twin.runs/synth_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+[Mon Apr  6 00:55:29 2026] Launched impl_1...
+Run output will be captured here: E:/Vivado_code/digital_twin/digital_twin.runs/impl_1/runme.log
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.141 . Memory (MB): peak = 2190.266 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 10930 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 10 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.823 . Memory (MB): peak = 2402.812 ; gain = 13.887
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 3153.488 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 3153.488 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 3153.488 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 3158.199 ; gain = 4.711
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3158.199 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 3181.172 ; gain = 22.973
+Read Physdb Files: Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 3181.172 ; gain = 27.684
+Restored from archive | CPU: 4.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 3181.172 ; gain = 27.684
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.066 . Memory (MB): peak = 3292.254 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 8192 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 8192 instances
+
+open_run: Time (s): cpu = 00:01:08 ; elapsed = 00:00:54 . Memory (MB): peak = 3808.203 ; gain = 1639.516
+open_report: Time (s): cpu = 00:00:42 ; elapsed = 00:00:18 . Memory (MB): peak = 4968.625 ; gain = 1081.781
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Apr  6 01:31:56 2026...

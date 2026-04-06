@@ -1,0 +1,5 @@
+xpm_cdc.sv,systemverilog,xpm,../ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,incdir="../../../../../../Xilinx/2025.2/Vivado/data/rsb/busdef"
+xpm_VCOMP.vhd,vhdl,xpm,../ip/xpm/xpm_VCOMP.vhd,incdir="../../../../../../Xilinx/2025.2/Vivado/data/rsb/busdef"
+dist_mem_gen_v8_0.v,verilog,dist_mem_gen_v8_0_17,../../../ipstatic/simulation/dist_mem_gen_v8_0.v,incdir="../../../../../../Xilinx/2025.2/Vivado/data/rsb/busdef"
+DRAM1.v,verilog,xil_defaultlib,../../../../digital_twin.gen/sources_1/ip/DRAM1/sim/DRAM1.v,incdir="../../../../../../Xilinx/2025.2/Vivado/data/rsb/busdef"
+glbl.v,Verilog,xil_defaultlib,glbl.v

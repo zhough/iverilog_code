@@ -19,7 +19,7 @@ parameter SYSCLK_PERIOD = 10;
 reg clk;
 reg [31:0] a, d;
 reg we;
-reg [1:0] mask;
+reg [2:0] mask;
 wire [31:0] spo;
 
 initial begin
@@ -27,7 +27,7 @@ initial begin
     a = 32'b0;
     d = 32'b0;
     we = 1'b0;
-    mask = 2'b0;
+    mask = 3'b0;
     count = 32'b0;
     forever begin  // 永久循环
         #(SYSCLK_PERIOD/2) clk = ~clk;
@@ -50,19 +50,25 @@ always @(posedge clk) begin
         a <= 32'd12;
         we <= 1'b0;
         d <= 32'b0;
-        mask <= 2'b01;
+        mask <= 3'b001;
     end
     else if (count == 32'd2) begin
         a <= 32'd16;
         we <= 1'b1;
         d <= 32'h1234567;
-        mask <= 2'b01;
+        mask <= 3'b001;
     end
     else if (count == 32'd3) begin
         a <= 32'd16;
         we <= 1'b0;
         d <= 32'b0;
-        mask <= 2'b0;
+        mask <= 3'b010;
+    end
+    else if (count == 32'd4) begin
+        a <= 32'd12;
+        we <= 1'b0;
+        d <= 32'b0;
+        mask <= 3'b101;
     end
     else begin
         a <= a + 1;
