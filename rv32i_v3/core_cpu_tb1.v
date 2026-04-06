@@ -28,13 +28,14 @@ irom u_irom(
     .spo (irom_data)
 );
 
-dram u_dram(
-    .a (perip_addr),
-    .d (perip_wdata),
+perip_bridge u_perip(
     .clk (cpu_clk),
-    .we (perip_wen),
-    .mask (perip_mask),
-    .spo (perip_rdata)
+    .rst (cpu_rst),
+    .perip_addr (perip_addr),
+    .perip_wdata (perip_wdata),
+    .perip_wen (perip_wen),
+    .perip_mask (perip_mask),
+    .perip_rdata (perip_rdata)
 );
 
 core_cpu1 u_CPU(
