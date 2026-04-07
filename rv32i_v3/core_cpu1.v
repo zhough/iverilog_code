@@ -47,7 +47,7 @@ wire [31:0] imm_id;
 wire jump_en_id, branch_en_id, is_lui_id, is_auipc_id, is_jalr_id, not_wb_id;
 wire [2:0] load_op_id, store_op_id;
 wire [4:0] rs1_id, rs2_id, rd_id;
-
+wire rs2_en_id;
 ID u_ID(
     .ins        (ins),
     .alu_src    (alu_src_id),
@@ -63,7 +63,8 @@ ID u_ID(
     .store_op   (store_op_id),
     .rs1        (rs1_id),
     .rs2        (rs2_id),
-    .rd         (rd_id)
+    .rd         (rd_id),
+    .rs2_en     (rs2_en_id)
 );
 //=================== ID module instance end =====================
 
@@ -118,11 +119,11 @@ assign is_load = ~(&load_op_ex);
 assign is_store = ~(&store_op_ex);
 reg is_load_mem, is_store_mem;
 assign is_WAR1 = ((rd_ex == rs1_id) & (rd_ex != 5'b0) & (~is_load) & (~not_wb_ex)) ? 1'b1 : 1'b0;
-assign is_WAR2 = ((rd_ex == rs2_id) & (rd_ex != 5'b0) & (~is_load) & (~not_wb_ex)) ? 1'b1 : 1'b0;
+assign is_WAR2 = ((rd_ex == rs2_id) & (rd_ex != 5'b0) & (~is_load) & (~not_wb_ex) & rs2_en_id) ? 1'b1 : 1'b0;
 assign is_WAR1_last = ((rd_mem == rs1_id) & (rd_mem != 5'b0) & (~not_wb_mem)) ? 1'b1 : 1'b0;    //包含了load-x-read类型
-assign is_WAR2_last = ((rd_mem == rs2_id) & (rd_mem != 5'b0) & (~not_wb_mem)) ? 1'b1 : 1'b0;
+assign is_WAR2_last = ((rd_mem == rs2_id) & (rd_mem != 5'b0) & (~not_wb_mem) & rs2_en_id) ? 1'b1 : 1'b0;
 assign is_LAR_if = is_LAR;
-assign is_LAR = ((rd_ex == rs1_id) & (rd_ex != 5'b0) & is_load & (~not_wb_ex)) ? 1'b1 : 1'b0;
+assign is_LAR = ((rd_ex == rs1_id | rd_ex == rs2_id) & (rd_ex != 5'b0) & is_load & (~not_wb_ex)) ? 1'b1 : 1'b0;
 
 assign irom_addr = irom_addr_if;
 always @(posedge clk or negedge rst_n)

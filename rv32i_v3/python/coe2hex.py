@@ -1,8 +1,8 @@
 import os
 
 # 配置
-COE_FOLDER   = "./rv32i_v3/coe"      # coe 所在文件夹（当前目录）
-OUT_FOLDER   = "./rv32i_v3/hex"    # 输出 hex 的文件夹（自动创建）
+COE_FOLDER   = "./rv32i_v3/coe/src2"      # coe 所在文件夹（当前目录）
+OUT_FOLDER   = "./rv32i_v3/hex/src2"    # 输出 hex 的文件夹（自动创建）
 
 # 创建输出文件夹
 if not os.path.exists(OUT_FOLDER):
