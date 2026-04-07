@@ -19,7 +19,7 @@ wire [2:0] perip_mask;
 wire perip_wen;
 assign pc_irom = irom_addr[14:2];
 
-irom u_irom(
+irom4 u_irom(
     .a (pc_irom),
     .spo (irom_data)
 );
@@ -34,6 +34,16 @@ core_cpu4 Core_CPU(
     .perip_wen      (perip_wen),
     .perip_mask     (perip_mask),
     .perip_rdata    (perip_rdata)
+);
+
+perip_bridge4 u_perip(
+    .clk (cpu_clk),
+    .rst (cpu_rst),
+    .perip_addr (perip_addr),
+    .perip_wdata (perip_wdata),
+    .perip_wen (perip_wen),
+    .perip_mask (perip_mask),
+    .perip_rdata (perip_rdata)
 );
     /*iverilog */
     initial

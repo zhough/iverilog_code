@@ -48,7 +48,7 @@ always @(*) begin
             is_jalr_reg = 1'b0;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b0;
-            rd_en_reg = 1'b0;
+            rd_en_reg = 1'b1;
             load_op_reg = 3'b111;
             store_op_reg = 3'b111;
             rs2_en_reg = 1'b1;
@@ -64,7 +64,7 @@ always @(*) begin
                 10'b0000000010: alu_op_reg = 4'b1001;  //SLT
                 10'b0000000011: alu_op_reg = 4'b1010;  //SLTU
                 default : begin
-                    rd_en_reg = 1'b1;
+                    rd_en_reg = 1'b0;
                     alu_op_reg = 4'b0000;         //无效
                 end
             endcase
@@ -80,7 +80,7 @@ always @(*) begin
             is_jalr_reg = 1'b0;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b0;
-            rd_en_reg = 1'b0;
+            rd_en_reg = 1'b1;
             load_op_reg = 3'b111;
             store_op_reg = 3'b111;
             rs2_en_reg = 1'b0;
@@ -96,7 +96,7 @@ always @(*) begin
                 3'b101: alu_op_reg = (funct7==7'b0000000) ? 4'b0111 : (funct7==7'b0100000) ? 4'b1000 : 4'b0000; //SRLI or SRAI
                 default: begin
                     alu_op_reg = 4'b0000;
-                    rd_en_reg <= 1'b1;
+                    rd_en_reg <= 1'b0;
                 end
             endcase
         end
@@ -109,7 +109,7 @@ always @(*) begin
             is_jalr_reg = 1'b0;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b0;
-            rd_en_reg = 1'b1;
+            rd_en_reg = 1'b0;
             load_op_reg = 3'b111;
             store_op_reg = 3'b111;
             rs2_en_reg = 1'b1;
@@ -133,7 +133,7 @@ always @(*) begin
             alu_op_reg = 4'b0000;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b0;
-            rd_en_reg = 1'b0;
+            rd_en_reg = 1'b1;
             load_op_reg = 3'b111;
             store_op_reg = 3'b111;
             rs2_en_reg = 1'b0;
@@ -148,7 +148,7 @@ always @(*) begin
             alu_op_reg = 4'b0000;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b0;
-            rd_en_reg = 1'b0;
+            rd_en_reg = 1'b1;
             load_op_reg = 3'b111;
             store_op_reg = 3'b111;
             rs2_en_reg = 1'b0;
@@ -163,7 +163,7 @@ always @(*) begin
             alu_op_reg = 4'b0000;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b1;
-            rd_en_reg = 1'b0;
+            rd_en_reg = 1'b1;
             load_op_reg = 3'b111;
             store_op_reg = 3'b111;
             rs2_en_reg = 1'b0;
@@ -178,7 +178,7 @@ always @(*) begin
             alu_op_reg = 4'b0000;   //加法（pc + imm)   可以套用branch_target
             is_auipc_reg = 1'b1;
             is_lui_reg = 1'b0;
-            rd_en_reg = 1'b0;
+            rd_en_reg = 1'b1;
             load_op_reg = 3'b111;
             store_op_reg = 3'b111;
             rs2_en_reg = 1'b0;
@@ -193,7 +193,7 @@ always @(*) begin
             alu_op_reg = 4'b0001;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b0;
-            rd_en_reg = 1'b0;
+            rd_en_reg = 1'b1;
             store_op_reg = 3'b111;
             load_op_reg = funct3;
             rs2_en_reg = 1'b0;
@@ -208,7 +208,7 @@ always @(*) begin
             alu_op_reg = 4'b0001;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b0;
-            rd_en_reg = 1'b1;
+            rd_en_reg = 1'b0;
             load_op_reg = 3'b111;
             store_op_reg = funct3; 
             rs2_en_reg = 1'b1;
@@ -222,7 +222,7 @@ always @(*) begin
             alu_op_reg = 4'b0000;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b0;
-            rd_en_reg = 1'b1;
+            rd_en_reg = 1'b0;
             load_op_reg = 3'b111;
             store_op_reg = 3'b111;
             rs2_en_reg = 1'b0;
