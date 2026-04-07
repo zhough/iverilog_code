@@ -1,24 +1,4 @@
-/*
-ID : Instruction decode
-in: instruction
-out: 
-    alu_op : ex模块的执行控制信号
-    alu_src : 1为立即数，0为寄存器2
-    imm : 扩展为32位的立即数
-    jump_en : 跳转指令标志位
-    branch_en : 分支指令标志位
-    is_lui : LUI指令标志位
-    is_auipc : AUIPC指令标志位
-    is_jalr : jalr标志，用于区分jalr和jal指令
-    not_wb : 无目标寄存器的指令
-    load_op : 111为非load指令，其他和funct3相同
-    store_op : 111为非store指令，其他和funct3相同
-    rs1 : 寄存器1的地址
-    rs2 : 寄存器2的地址
-    rd : 目标寄存器的地址
-
-*/
-module ID (
+module ID4 (
     input [31:0] ins,
     output alu_src,
     output [3:0] alu_op,
@@ -29,7 +9,7 @@ module ID (
     output is_lui,
     output is_auipc,
     output is_jalr,
-    output not_wb,
+    output rd_en,
     output [2:0] load_op,
     output [2:0] store_op,
     output [4:0] rs1,
@@ -49,9 +29,9 @@ wire [20:0] immj = {ins[31],ins[19:12],ins[20],ins[30:21],1'b0};    //J型指令
 assign rd = ins[11:7];     //目标寄存器地址
 assign rs1 = ins[19:15];   //地址
 assign rs2 = ins[24:20];   //地址
-assign rs2_en = rs2_en_reg; //rs2有效标志位
 
-reg alu_src_reg,jump_en_reg,branch_en_reg,is_jalr_reg,is_lui_reg,is_auipc_reg,not_wb_reg;
+
+reg alu_src_reg,jump_en_reg,branch_en_reg,is_jalr_reg,is_lui_reg,is_auipc_reg,rd_en_reg;
 reg [3:0] alu_op_reg;
 reg [31:0] imm_reg;
 reg [2:0] load_op_reg;
@@ -68,7 +48,7 @@ always @(*) begin
             is_jalr_reg = 1'b0;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b0;
-            not_wb_reg = 1'b0;
+            rd_en_reg = 1'b0;
             load_op_reg = 3'b111;
             store_op_reg = 3'b111;
             rs2_en_reg = 1'b1;
@@ -84,7 +64,7 @@ always @(*) begin
                 10'b0000000010: alu_op_reg = 4'b1001;  //SLT
                 10'b0000000011: alu_op_reg = 4'b1010;  //SLTU
                 default : begin
-                    not_wb_reg = 1'b1;
+                    rd_en_reg = 1'b1;
                     alu_op_reg = 4'b0000;         //无效
                 end
             endcase
@@ -100,7 +80,7 @@ always @(*) begin
             is_jalr_reg = 1'b0;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b0;
-            not_wb_reg = 1'b0;
+            rd_en_reg = 1'b0;
             load_op_reg = 3'b111;
             store_op_reg = 3'b111;
             rs2_en_reg = 1'b0;
@@ -116,7 +96,7 @@ always @(*) begin
                 3'b101: alu_op_reg = (funct7==7'b0000000) ? 4'b0111 : (funct7==7'b0100000) ? 4'b1000 : 4'b0000; //SRLI or SRAI
                 default: begin
                     alu_op_reg = 4'b0000;
-                    not_wb_reg <= 1'b1;
+                    rd_en_reg <= 1'b1;
                 end
             endcase
         end
@@ -129,7 +109,7 @@ always @(*) begin
             is_jalr_reg = 1'b0;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b0;
-            not_wb_reg = 1'b1;
+            rd_en_reg = 1'b1;
             load_op_reg = 3'b111;
             store_op_reg = 3'b111;
             rs2_en_reg = 1'b1;
@@ -153,7 +133,7 @@ always @(*) begin
             alu_op_reg = 4'b0000;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b0;
-            not_wb_reg = 1'b0;
+            rd_en_reg = 1'b0;
             load_op_reg = 3'b111;
             store_op_reg = 3'b111;
             rs2_en_reg = 1'b0;
@@ -168,7 +148,7 @@ always @(*) begin
             alu_op_reg = 4'b0000;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b0;
-            not_wb_reg = 1'b0;
+            rd_en_reg = 1'b0;
             load_op_reg = 3'b111;
             store_op_reg = 3'b111;
             rs2_en_reg = 1'b0;
@@ -183,7 +163,7 @@ always @(*) begin
             alu_op_reg = 4'b0000;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b1;
-            not_wb_reg = 1'b0;
+            rd_en_reg = 1'b0;
             load_op_reg = 3'b111;
             store_op_reg = 3'b111;
             rs2_en_reg = 1'b0;
@@ -198,7 +178,7 @@ always @(*) begin
             alu_op_reg = 4'b0000;   //加法（pc + imm)   可以套用branch_target
             is_auipc_reg = 1'b1;
             is_lui_reg = 1'b0;
-            not_wb_reg = 1'b0;
+            rd_en_reg = 1'b0;
             load_op_reg = 3'b111;
             store_op_reg = 3'b111;
             rs2_en_reg = 1'b0;
@@ -213,7 +193,7 @@ always @(*) begin
             alu_op_reg = 4'b0001;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b0;
-            not_wb_reg = 1'b0;
+            rd_en_reg = 1'b0;
             store_op_reg = 3'b111;
             load_op_reg = funct3;
             rs2_en_reg = 1'b0;
@@ -228,7 +208,7 @@ always @(*) begin
             alu_op_reg = 4'b0001;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b0;
-            not_wb_reg = 1'b1;
+            rd_en_reg = 1'b1;
             load_op_reg = 3'b111;
             store_op_reg = funct3; 
             rs2_en_reg = 1'b1;
@@ -242,7 +222,7 @@ always @(*) begin
             alu_op_reg = 4'b0000;
             is_auipc_reg = 1'b0;
             is_lui_reg = 1'b0;
-            not_wb_reg = 1'b1;
+            rd_en_reg = 1'b1;
             load_op_reg = 3'b111;
             store_op_reg = 3'b111;
             rs2_en_reg = 1'b0;
@@ -260,6 +240,7 @@ assign is_auipc = is_auipc_reg;
 assign is_lui = is_lui_reg;
 assign load_op = load_op_reg;
 assign store_op = store_op_reg;
-assign not_wb = not_wb_reg;
+assign rd_en = rd_en_reg;
+assign rs2_en = rs2_en_reg; //rs2有效标志位
 
 endmodule

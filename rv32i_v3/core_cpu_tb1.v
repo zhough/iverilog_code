@@ -59,15 +59,13 @@ end
 /*iverilog */
 
 initial begin
-    # 1000000;  // 跑 10000 个时间单位后停止
+    # 1000000;  //
     $stop;   // 仿真停止
 end
 
 reg [31:0] count;
 always @(posedge cpu_clk) begin
-    if (pc_irom == 13'h1FFF) begin
-        $finish;
-    end
+
     count <= count + 1;
     if( (perip_addr >= 32'h80200000) && (perip_addr < 32'h802000FF) && (perip_mask != 3'b111) ) begin
             $display("pc_irom: %h, perip_addr: %h, perip_wdata: %h, perip_rdata: %h, mask: %b, wen: %b count, %h",

@@ -13,12 +13,11 @@ wire [15:0] addr;
 wire [1:0] offset;
 wire [31:0] tmp_output;
 reg [31:0] spo_reg;
-// // 仿真时自动加载 hex 文件
+// 仿真时自动加载 hex 文件
 initial begin
-    $readmemh("./hex/dram.hex", mem); // 你的机器码文件
+    $readmemh("./hex/src1/dram.hex", mem); // 你的机器码文件
 end
 // initial begin: init_ram
-//     // 全局初始化：全部赋 0 或某个固定值
 //     integer i;
 //     for(i=0; i<65536; i=i+1) begin
 //         mem[i] = 32'hefefefef;  // 全部初始化为0
