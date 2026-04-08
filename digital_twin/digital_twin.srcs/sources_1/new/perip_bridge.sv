@@ -36,7 +36,7 @@ module perip_bridge(
 	output logic [39:0]  virtual_seg_output	,
     output logic [31:0]  virtual_led_output
 );
-    localparam DRAM_ADDR_START = 32'h8010_0000;
+    localparam DRAM_ADDR_START = 32'h0010_0000;
     localparam DRAM_ADDR_END   = 32'h8013_FFFF;
     localparam SW0_ADDR  = 32'h8020_0000;  // sw[31:0]
     localparam SW1_ADDR  = 32'h8020_0004;  // sw[63:32]
