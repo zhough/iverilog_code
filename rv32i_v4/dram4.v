@@ -49,11 +49,8 @@ always @(*) begin
 end
 //写
 always @(posedge clk) begin
-    if (we == 1'b1) begin
+    if (we) begin
         mem[addr] <= din;
-    end
-    else begin
-        mem[addr] <= mem[addr];
     end
 end 
 

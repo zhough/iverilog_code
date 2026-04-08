@@ -334,5 +334,5 @@ module core_cpu4(
     wire [31:0] rs2    = rs[2];
     wire [31:0] rs3    = rs[3];
 
-    注意改组合逻辑和时序逻辑的位置
+    // 注意改组合逻辑和时序逻辑的位置
 endmodule
