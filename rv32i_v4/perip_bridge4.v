@@ -8,7 +8,7 @@ module perip_bridge4 (
     output  [31:0]  perip_rdata
 );
     localparam DRAM_ADDR_START = 32'h0010_0000;
-    localparam DRAM_ADDR_END   = 32'h0013_FFFF;
+    localparam DRAM_ADDR_END   = 32'h8013_FFFF;
     localparam DRAM_ADDR_START1 = 32'h8010_0000;
     localparam DRAM_ADDR_END1   = 32'h8013_FFFF;
     localparam SW0_ADDR  = 32'h8020_0000;  // sw[31:0]
@@ -41,8 +41,8 @@ module perip_bridge4 (
         .perip_rdata (cnt_rdata)    
     );
 
-    // assign perip_rdata = (perip_addr == CNT_ADDR) ? cnt_rdata :
-    //                     (perip_addr >= DRAM_ADDR_START && perip_addr < DRAM_ADDR_END) ? dram_rdata :
-    //                     32'b0;
-    assign perip_rdata =  (perip_addr == CNT_ADDR) ? cnt_rdata : dram_rdata;
+    assign perip_rdata = (perip_addr == CNT_ADDR) ? cnt_rdata :
+                        (perip_addr >= DRAM_ADDR_START && perip_addr < DRAM_ADDR_END) ? dram_rdata :
+                        32'b0;
+    // assign perip_rdata =  (perip_addr == CNT_ADDR) ? cnt_rdata : dram_rdata;
 endmodule

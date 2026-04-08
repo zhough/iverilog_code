@@ -8,6 +8,7 @@ initial begin
     end
 end
 initial begin
+    count = 0;
     cpu_rst = 1;
     #6;
     cpu_rst = 0;
@@ -53,8 +54,24 @@ perip_bridge4 u_perip(
     end
     /*iverilog */
 
-    initial begin
-        # 1000000;  //
-        $stop;   // 仿真停止
+    // initial begin
+    //     # 1000000;  //
+    //     $stop;   // 仿真停止
+    // end
+
+    reg [31:0] count;
+    always @(posedge cpu_clk) begin
+        count <= count + 1;
+        if( (perip_addr >= 32'h80200000) && (perip_addr < 32'h802000FF) && (perip_mask != 3'b111) ) begin
+                $display("pc_irom: %h, perip_addr: %h, perip_wdata: %h, perip_rdata: %h, mask: %b, wen: %b count, %h",
+                    pc_irom,
+                    perip_addr,
+                    perip_wdata,
+                    perip_rdata,
+                    perip_mask,
+                    perip_wen,
+                    count
+                );
+        end
     end
 endmodule
