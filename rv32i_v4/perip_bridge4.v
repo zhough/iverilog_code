@@ -7,7 +7,7 @@ module perip_bridge4 (
     input   [2:0]   perip_mask,
     output  [31:0]  perip_rdata
 );
-    localparam DRAM_ADDR_START = 32'h0010_0000;
+    localparam DRAM_ADDR_START = 32'h8010_0000;
     localparam DRAM_ADDR_END   = 32'h8013_FFFF;
     localparam DRAM_ADDR_START1 = 32'h8010_0000;
     localparam DRAM_ADDR_END1   = 32'h8013_FFFF;

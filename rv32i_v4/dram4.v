@@ -15,7 +15,7 @@ wire [31:0] tmp_output;
 reg [31:0] spo_reg;
 // 仿真时自动加载 hex 文件
 initial begin
-    $readmemh("../rv32i_v3/hex/src1/dram.hex", mem); // 你的机器码文件
+    $readmemh("../rv32i_v3/hex/dram.hex", mem); // 你的机器码文件
 end
 // initial begin: init_ram
 //     integer i;

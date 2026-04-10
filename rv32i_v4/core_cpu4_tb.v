@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+`timescale 1ns / 1ns
 module core_cpu4_tb;
 reg cpu_rst, cpu_clk;
 initial begin 
@@ -10,7 +10,7 @@ end
 initial begin
     count = 0;
     cpu_rst = 1;
-    #6;
+    #5;
     cpu_rst = 0;
 end
 
@@ -54,10 +54,10 @@ perip_bridge4 u_perip(
     end
     /*iverilog */
 
-    // initial begin
-    //     # 1000000;  //
-    //     $stop;   // 仿真停止
-    // end
+    initial begin
+        # 100000;  //
+        $stop;   // 仿真停止
+    end
 
     reg [31:0] count;
     always @(posedge cpu_clk) begin

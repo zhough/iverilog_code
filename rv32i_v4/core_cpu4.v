@@ -39,7 +39,7 @@ module core_cpu4(
 
     always @(negedge rst_n or posedge clk) begin
         if (!rst_n) begin
-            curr_pc_if <= 32'b0;
+            curr_pc_if <= 32'h8000_0000;
         end else begin
             curr_pc_if <= next_pc_if;
         end
@@ -152,7 +152,7 @@ module core_cpu4(
         if (!rst_n) begin
             pc_ex <= 32'b0;
             alu_op_ex <= 4'b0;
-            alu_src_ex <= 4'b0;
+            alu_src_ex <= 1'b0;
             a_ex <= 32'b0;
             b_ex <= 32'b0;
             imm_ex <= 32'b0;
@@ -168,7 +168,7 @@ module core_cpu4(
                 a_ex <= 32'b0;
                 b_ex <= 32'b0;
                 imm_ex <= 32'b0;
-                jump_en_ex <= 32'b0;
+                jump_en_ex <= 1'b0;
                 is_jalr_ex <= 1'b0;
                 store_op_ex <= 3'b111;
                 load_op_ex <= 3'b111;
@@ -198,34 +198,34 @@ module core_cpu4(
     reg     ex_clear;
     reg     id_nop;
     always @(*) begin
-        if (!rst_n) begin
-            nop_if <= 1'b0;
-            jump_taken_if <= 1'b0;
-            jump_target_if <= 32'b0;
-            branch_taken_if <= 1'b0;
-            branch_target_if <= 32'b0;
-            id_clear <= 1'b0;
-            ex_clear <= 1'b0;
-            id_nop <= 1'b0;
-        end else begin
-            jump_taken_if <= jump_taken_ex;
-            jump_target_if <= jump_target_ex;
-            branch_taken_if <= branch_taken_ex;
-            branch_target_if <= branch_target_ex;
-            id_clear <= jump_taken_ex | branch_taken_ex;
-            ex_clear <= jump_taken_ex | branch_taken_ex | LAR;
-            id_nop <= LAR;
-            nop_if <= LAR;
-        end
+        // if (!rst_n) begin
+        //     nop_if = 1'b0;
+        //     jump_taken_if = 1'b0;
+        //     jump_target_if = 32'b0;
+        //     branch_taken_if = 1'b0;
+        //     branch_target_if = 32'b0;
+        //     id_clear = 1'b0;
+        //     ex_clear = 1'b0;
+        //     id_nop = 1'b0;
+        // end else begin
+            jump_taken_if = jump_taken_ex;
+            jump_target_if = jump_target_ex;
+            branch_taken_if = branch_taken_ex;
+            branch_target_if = branch_target_ex;
+            id_clear = jump_taken_ex | branch_taken_ex;
+            ex_clear = jump_taken_ex | branch_taken_ex | LAR;
+            id_nop = LAR;
+            nop_if = LAR;
+        // end
     end
 
     //数据旁路
-    reg     [5:0]       rd_ex;
+    reg     [4:0]       rd_ex;
     reg                 rd_en_ex;
-    reg     [5:0]       rd_mem;
+    reg     [4:0]       rd_mem;
     reg                 rd_en_mem;
-    reg     [5:0]       rs2_ex;
-    reg     [5:0]       rs2_mem;
+    reg     [4:0]       rs2_ex;
+    reg     [4:0]       rs2_mem;
     reg                 is_lui_ex;
     reg                 is_auipc_ex;
     wire                WAR1_ex;
@@ -236,11 +236,11 @@ module core_cpu4(
     wire    [31:0]      bypass_ex;
     wire    [31:0]      bypass_mem;
     wire    [31:0]     wb_result_ex;
-    assign  WAR1_ex = (rd_ex == rs1_id) & rd_en_ex & (~is_load_ex);
-    assign  WAR2_ex = (rd_ex == rs2_id) & rd_en_ex & (~is_load_ex);
-    assign WAR1_mem = (rd_mem == rs1_id) & rd_en_mem;
-    assign WAR2_mem = (rd_mem == rs2_id) & rd_en_mem;
-    assign LAR = (rd_ex == rs1_id | rd_ex == rs2_id) & is_load_ex;
+    assign  WAR1_ex = (rd_ex == rs1_id) & rd_en_ex & (~is_load_ex) & (rs1_id != 5'b0);
+    assign  WAR2_ex = (rd_ex == rs2_id) & rd_en_ex & (~is_load_ex) & (rs2_id != 5'b0);
+    assign WAR1_mem = (rd_mem == rs1_id) & rd_en_mem & (rs1_id != 5'b0);
+    assign WAR2_mem = (rd_mem == rs2_id) & rd_en_mem & (rs2_id != 5'b0);
+    assign LAR = ((rd_ex == rs1_id & rs1_id != 5'b0) | (rd_ex == rs2_id & rs2_id != 5'b0)) & is_load_ex;
     assign bypass_ex = wb_result_ex;
     assign bypass_mem = wb_result_mem;
     
