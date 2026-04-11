@@ -1,0 +1,9 @@
+1. 对dram模拟块改为BRAM的控制逻辑，包括dram.v，we作为写的掩码，对齐vivadoip核
+2. 修改顶层的控制逻辑，load的地址要在EX阶段传入，数据在MEM阶段读出
+3. store阶段
+4. load 和 store子模块，包含生成掩码和读出数据的控制
+5. 为保持ram的地址统一输入，store要提前到EX阶段，所以需要为写入数据做数据旁路
+6. 考虑store after load情况 
+
+待定：
+irom暂时用lutram

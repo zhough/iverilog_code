@@ -17,12 +17,6 @@ reg [31:0] spo_reg;
 initial begin
     $readmemh("./hex/test_src/dram.hex", mem); // 你的机器码文件
 end
-// initial begin: init_ram
-//     integer i;
-//     for(i=0; i<65536; i=i+1) begin
-//         mem[i] = 32'hdeadbeef;  // 全部初始化为0
-//     end
-// end
 
 // 0 延迟，组合逻辑读出
 //读

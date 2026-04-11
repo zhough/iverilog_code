@@ -63,7 +63,6 @@ always @(*) begin
         5'b10011: spo_reg <= {24'b0, tmp_output[31:24]};
         //无符号双字节
         5'b10100: spo_reg <= {16'b0, tmp_output[15:0]};
-        5'b10101: spo_reg <= {16'b0, tmp_output[23:8]};
         5'b10110: spo_reg <= {16'b0, tmp_output[31:16]};
         //四字节
         5'b01000: spo_reg <= tmp_output;
@@ -74,7 +73,6 @@ always @(*) begin
         5'b00011: spo_reg <= {{24{tmp_output[31]}}, tmp_output[31:24]};
         //有符号双字节
         5'b00100: spo_reg <= {{16{tmp_output[15]}}, tmp_output[15:0]};
-        5'b00101: spo_reg <= {{16{tmp_output[23]}}, tmp_output[23:8]};
         5'b00110: spo_reg <= {{16{tmp_output[31]}}, tmp_output[31:16]};
         default: spo_reg <= 32'b0;
     endcase 
