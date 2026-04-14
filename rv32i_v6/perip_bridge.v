@@ -31,7 +31,7 @@ module perip_bridge (
             perip_addr_reg2 <= 32'b0;
         end else
             perip_addr_reg <= perip_addr;
-            peirp_addr_reg2 <= perip_addr_reg;
+            perip_addr_reg2 <= perip_addr_reg;
     end
 
     dram_driver dram_driver_inst (

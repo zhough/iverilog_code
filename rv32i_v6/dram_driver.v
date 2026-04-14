@@ -123,7 +123,7 @@ module dram_driver (
     end
 
     //打一拍
-    always (posedge clk or posedge rst) begin
+    always @(posedge clk or posedge rst) begin
         if (rst) begin
             dout <= 32'b0;
         end else begin

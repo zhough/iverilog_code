@@ -185,9 +185,11 @@ module core_cpu (
                 //加入旁路
                 a_ex <= WAR1_ex     ? bypass_ex     :
                         WAR1_mem    ? bypass_mem    :
+                        WAR2_mem2   ? bypass_mem2   :
                         rs[rs1_id];
                 b_ex <= WAR2_ex     ? bypass_ex     :
                         WAR2_mem    ? bypass_mem    :
+                        WAR2_mem2   ? bypass_mem2   :
                         rs[rs2_id];
 
                 imm_ex <= imm_id;
@@ -204,25 +206,15 @@ module core_cpu (
     reg     ex_clear;
     reg     id_nop;
     always @(*) begin
-        // if (!rst_n) begin
-        //     nop_if = 1'b0;
-        //     jump_taken_if = 1'b0;
-        //     jump_target_if = 32'b0;
-        //     branch_taken_if = 1'b0;
-        //     branch_target_if = 32'b0;
-        //     id_clear = 1'b0;
-        //     ex_clear = 1'b0;
-        //     id_nop = 1'b0;
-        // end else begin
-            jump_taken_if = jump_taken_ex;
-            jump_target_if = jump_target_ex;
-            branch_taken_if = branch_taken_ex;
-            branch_target_if = branch_target_ex;
-            id_clear = jump_taken_ex | branch_taken_ex;
-            ex_clear = jump_taken_ex | branch_taken_ex | LAR;
-            id_nop = LAR;
-            nop_if = LAR;
-        // end
+        jump_taken_if = jump_taken_ex;
+        jump_target_if = jump_target_ex;
+        branch_taken_if = branch_taken_ex;
+        branch_target_if = branch_target_ex;
+        id_clear = jump_taken_ex | branch_taken_ex;
+        ex_clear = jump_taken_ex | branch_taken_ex | LAR | LAR2;
+        id_nop = LAR | LAR2;
+        nop_if = LAR | LAR2;
+
     end
 
     //数据旁路
@@ -242,18 +234,21 @@ module core_cpu (
     wire                WAR1_mem2;
     wire                WAR2_mem2;
     wire                LAR;
-    wire                LAR2;
+    reg                 LAR2;
     wire    [31:0]      bypass_ex;
     wire    [31:0]      bypass_mem;
-    wire    [31:0]     wb_result_ex;
+    wire    [31:0]      bypass_mem2;
+    wire    [31:0]      wb_result_ex;
     assign  WAR1_ex = (rd_ex == rs1_id) & rd_en_ex & (~is_load_ex) & (rs1_id != 5'b0);
     assign  WAR2_ex = (rd_ex == rs2_id) & rd_en_ex & (~is_load_ex) & (rs2_id != 5'b0);
     assign WAR1_mem = (rd_mem == rs1_id) & rd_en_mem & (~is_load_mem) & (rs1_id != 5'b0);
     assign WAR2_mem = (rd_mem == rs2_id) & rd_en_mem & (~is_load_mem) & (rs2_id != 5'b0);
-    从这里继续改
+    assign WAR1_mem2 = (rd_mem2 == rs1_id) & rd_en_mem2 & (rs1_id != 5'b0); //包含load after read
+    assign WAR2_mem2 = (rd_mem2 == rs2_id) & rd_en_mem2 & (rs2_id != 5'b0);
     assign LAR = ((rd_ex == rs1_id & rs1_id != 5'b0) | (rd_ex == rs2_id & rs2_id != 5'b0)) & is_load_ex;
     assign bypass_ex = wb_result_ex;
     assign bypass_mem = wb_result_mem;
+    assign bypass_mem2 = wb_result_mem2;
     
     //ex阶段要写寄存器的数
     assign wb_result_ex =   is_lui_ex ? imm_ex :
@@ -272,11 +267,13 @@ module core_cpu (
             rs2_ex <= 5'b0;
             is_lui_ex <= 1'b0;
             is_auipc_ex <= 1'b0;
+            LAR2 <= 1'b0;
         end else begin
             rd_mem <= rd_ex;
             rd_en_mem <= rd_en_ex;
             rd_mem2 <= rd_mem;
             rd_en_mem2 <= rd_en_mem;
+            LAR2 <= LAR;
             if (ex_clear) begin
                 rd_ex <= 5'b0;
                 rd_en_ex <= 1'b0;
@@ -309,7 +306,9 @@ module core_cpu (
     //判断是否为写寄存器后下一条指令为将该寄存器写入内存
     wire                is_WAS; //write after store
     assign is_WAS = (rs2_ex == rd_mem) & (is_store_ex) & rd_en_mem & (rs2_ex != 5'b0);
-    assign  store_data_ex  = is_WAS ? bypass_mem : rs[rs2_ex];
+    assign is_WAS2 = (rs2_ex == rd_mem2) & (is_store_ex) & rd_en_mem2 & (rs2_ex != 5'b0);
+    assign  store_data_ex  = is_WAS ? bypass_mem : 
+                             is_WAS2 ? bypass_mem2 : rs[rs2_ex];
 
     assign  load_data_mem2 = perip_rdata;
     assign  perip_addr  =   alu_result_ex;
@@ -341,8 +340,8 @@ module core_cpu (
                 rs[i] <= 32'd0; 
             end
         end else begin
-            if (rd_en_mem & (rd_mem != 5'b0)) begin
-                rs[rd_mem] <= wb_result_mem2;
+            if (rd_en_mem2 & (rd_mem2 != 5'b0)) begin
+                rs[rd_mem2] <= wb_result_mem2;
             end
         end
     end
