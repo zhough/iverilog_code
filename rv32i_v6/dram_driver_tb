@@ -1,0 +1,119 @@
+`timescale 1ns/1ns
+
+module dram_driver_tb;
+    
+    reg             clk;
+    reg             rst;
+    reg     [31:0]  addr;
+    reg     [31:0]  din;
+    reg     [2:0]   mask;
+    reg             wen;
+    wire    [31:0]  dout;
+    reg     [31:0]  count;
+
+    dram_driver dram_inst(
+        .clk        (clk),
+        .rst        (rst),
+        .addr       (addr),
+        .din        (din),
+        .mask       (mask),
+        .wen        (wen),
+        .dout       (dout)
+    );
+
+    initial begin
+        rst = 0;
+        #5;
+        rst = 1;
+        #5;
+        rst = 0;
+    end
+
+    initial begin
+        clk = 1'b0;
+        forever begin
+            #5 clk = ~clk;
+        end
+    end
+
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            count <= 32'b0;
+            addr <= 32'b0;
+            mask <= 3'b111;
+            din <= 32'b0;
+            wen <= 1'b0;
+        end else begin
+            count <= count + 1;
+            case (count) 
+                32'd0: begin
+                    addr <= 32'd12;
+                    mask <= 3'b001;
+                    din <= 32'b0;
+                    wen <= 1'b0;
+                end
+                32'd1: begin
+                    addr <= 32'd13;
+                    mask <= 3'b000;
+                    din <= 32'b0;
+                    wen <= 1'b0;
+                end
+                32'd2: begin
+                    addr <= 32'd16;
+                    mask <= 3'b010;
+                    din <= 32'b0;
+                    wen <= 1'b0;
+                end
+                32'd3: begin
+                    addr <= 32'd12;
+                    mask <= 3'b100;
+                    din <= 32'b0;
+                    wen <= 1'b0;
+                end
+                32'd4: begin
+                    addr <= 32'd12;
+                    mask <= 3'b001;
+                    din <= 32'h12345678;
+                    wen <= 1'b1;
+                end
+                32'd5: begin
+                     addr <= 32'd18;
+                     mask <= 3'b001;
+                     din <= 32'h87654321;
+                     wen <= 1'b1;
+                end
+                32'd6: begin
+                     addr <= 32'd14;
+                     mask <= 001;
+                     din <= 32'b0;
+                     wen <= 1'b0;
+                end
+                32'd7: begin
+                    addr <= 32'd19;
+                    mask <= 000;
+                    din <= 32'b0;
+                    wen <= 1'b0;
+                end
+                default: begin
+                    addr <= count;
+                    mask <= 3'b000;
+                    din <= 32'b0;
+                    wen <= 1'b0;
+                end
+            endcase
+        end
+    end
+
+    /*iverilog */
+    initial
+    begin            
+        $dumpfile("wave.vcd");        //生成的vcd文件名称
+        $dumpvars(0, dram_driver_tb);    //tb模块名称
+    end
+    /*iverilog */
+
+    initial begin
+        # 10000;  //
+        $stop;   // 仿真停止
+    end
+endmodule

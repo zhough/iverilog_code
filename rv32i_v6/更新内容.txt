@@ -1,0 +1,7 @@
+在V5的情况下进行改进，在dram_driver后面加一级寄存器
+修改内容如下：
+   1. load after read需要多一个时钟的stall，让read指令停留在ID阶段2个时钟
+   2. write after read需要多一级的检测和旁路（或者stall）
+   3. dram不变
+   4. dram_driver的输出控制加一拍
+   5. bridge部分的输出控制的地址再打一拍
