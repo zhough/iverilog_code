@@ -305,6 +305,7 @@ module core_cpu (
     wire     [31:0]      store_data_ex;
     //判断是否为写寄存器后下一条指令为将该寄存器写入内存
     wire                is_WAS; //write after store
+    wire                is_WAS2;
     assign is_WAS = (rs2_ex == rd_mem) & (is_store_ex) & rd_en_mem & (rs2_ex != 5'b0);
     assign is_WAS2 = (rs2_ex == rd_mem2) & (is_store_ex) & rd_en_mem2 & (rs2_ex != 5'b0);
     assign  store_data_ex  = is_WAS ? bypass_mem : 

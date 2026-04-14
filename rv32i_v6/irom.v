@@ -8,7 +8,7 @@ reg [31:0] mem [0:8192]; // 1024 条指令
 
 // 仿真时自动加载 hex 文件
 initial begin
-    $readmemh("./hex/src0/irom.hex", mem); // 你的机器码文件
+    $readmemh("./hex/rv32ui-p-add.hex", mem); // 你的机器码文件
 end
 
 // 0 延迟，组合逻辑读出

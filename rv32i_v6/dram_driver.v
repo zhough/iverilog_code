@@ -83,16 +83,13 @@ module dram_driver (
     //wen, offest, mask打一拍
     reg     [1:0]   offest_reg;
     reg     [2:0]   mask_reg;
-    reg             wen_reg;
     always @(posedge clk or posedge rst) begin
         if (rst) begin
             mask_reg <= 3'b111;
             offest_reg <= 2'b0;
-            wen_reg <= 1'b0;
         end else begin
             mask_reg <= mask;
             offest_reg <= offest;
-            wen_reg <= wen;
         end
     end
 
