@@ -230,22 +230,27 @@ module core_cpu (
     reg                 rd_en_ex;
     reg     [4:0]       rd_mem;
     reg                 rd_en_mem;
+    reg     [4:0]       rd_mem2;
+    reg                 rd_en_mem2;
     reg     [4:0]       rs2_ex;
-    reg     [4:0]       rs2_mem;
     reg                 is_lui_ex;
     reg                 is_auipc_ex;
     wire                WAR1_ex;
     wire                WAR2_ex;
     wire                WAR1_mem;
     wire                WAR2_mem;
+    wire                WAR1_mem2;
+    wire                WAR2_mem2;
     wire                LAR;
+    wire                LAR2;
     wire    [31:0]      bypass_ex;
     wire    [31:0]      bypass_mem;
     wire    [31:0]     wb_result_ex;
     assign  WAR1_ex = (rd_ex == rs1_id) & rd_en_ex & (~is_load_ex) & (rs1_id != 5'b0);
     assign  WAR2_ex = (rd_ex == rs2_id) & rd_en_ex & (~is_load_ex) & (rs2_id != 5'b0);
-    assign WAR1_mem = (rd_mem == rs1_id) & rd_en_mem & (rs1_id != 5'b0);
-    assign WAR2_mem = (rd_mem == rs2_id) & rd_en_mem & (rs2_id != 5'b0);
+    assign WAR1_mem = (rd_mem == rs1_id) & rd_en_mem & (~is_load_mem) & (rs1_id != 5'b0);
+    assign WAR2_mem = (rd_mem == rs2_id) & rd_en_mem & (~is_load_mem) & (rs2_id != 5'b0);
+    从这里继续改
     assign LAR = ((rd_ex == rs1_id & rs1_id != 5'b0) | (rd_ex == rs2_id & rs2_id != 5'b0)) & is_load_ex;
     assign bypass_ex = wb_result_ex;
     assign bypass_mem = wb_result_mem;
@@ -262,14 +267,16 @@ module core_cpu (
             rd_en_ex <= 1'b0;
             rd_mem <= 5'b0;
             rd_en_mem <= 1'b0;
+            rd_mem2 <= 5'b0;
+            rd_en_mem2 <= 1'b0;
             rs2_ex <= 5'b0;
-            rs2_mem <= 5'b0;
             is_lui_ex <= 1'b0;
             is_auipc_ex <= 1'b0;
         end else begin
             rd_mem <= rd_ex;
             rd_en_mem <= rd_en_ex;
-            rs2_mem <= rs2_ex;
+            rd_mem2 <= rd_mem;
+            rd_en_mem2 <= rd_en_mem;
             if (ex_clear) begin
                 rd_ex <= 5'b0;
                 rd_en_ex <= 1'b0;
