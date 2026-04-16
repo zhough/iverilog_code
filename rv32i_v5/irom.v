@@ -4,11 +4,11 @@ module irom (
     output [31:0] spo
 );
 
-reg [31:0] mem [0:8192]; // 1024 条指令
+reg [31:0] mem [0:8192];
 
 // 仿真时自动加载 hex 文件
 initial begin
-    $readmemh("./hex/src0/irom.hex", mem); // 你的机器码文件
+    $readmemh("./hex/test_src/irom.hex", mem);
 end
 
 // 0 延迟，组合逻辑读出

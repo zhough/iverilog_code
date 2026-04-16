@@ -12,8 +12,8 @@ module IF (
 );
 
     assign irom_addr = (rst_n) ? curr_pc : 32'h8000_0000;
-    assign next_pc = nop ? curr_pc :
-                    jump_taken ? jump_target :
-                    branch_taken ? branch_target :
-                    curr_pc + 4;
+    assign next_pc = jump_taken ? jump_target :
+                     branch_taken ? branch_target :
+                     nop ? curr_pc :
+                     curr_pc + 4;
 endmodule

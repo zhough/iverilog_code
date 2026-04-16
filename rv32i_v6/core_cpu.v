@@ -64,6 +64,7 @@ module core_cpu (
     wire                is_jalr_id;
     wire                rd_en_id;
     wire                rs2_en_id;
+    wire                rs1_en_id;
     wire    [2:0]       load_op_id;
     wire    [2:0]       store_op_id;
     wire    [4:0]       rs1_id;
@@ -86,7 +87,8 @@ module core_cpu (
         .rs1        (rs1_id),
         .rs2        (rs2_id),
         .rd         (rd_id),
-        .rs2_en     (rs2_en_id)
+        .rs2_en     (rs2_en_id),
+        .rs1_en     (rs1_en_id)
     );
 
     reg     [31:0]      pc_id;
@@ -178,6 +180,18 @@ module core_cpu (
                 is_jalr_ex <= 1'b0;
                 store_op_ex <= 3'b111;
                 load_op_ex <= 3'b111;
+            end else if (ex_stall) begin
+                pc_ex <= pc_ex;
+                alu_op_ex <= alu_op_ex;
+                alu_src_ex <= alu_src_ex;
+                a_ex <= a_ex;
+                b_ex <= b_ex;
+                imm_ex <= imm_ex;
+                jump_en_ex <= jump_en_ex;
+                branch_en_ex <= branch_en_ex;
+                is_jalr_ex <= is_jalr_ex;
+                store_op_ex <= store_op_ex;
+                load_op_ex <= load_op_ex;
             end else begin
                 pc_ex <= pc_id;
                 alu_op_ex <= alu_op_id;
@@ -185,12 +199,14 @@ module core_cpu (
                 //加入旁路
                 a_ex <= WAR1_ex     ? bypass_ex     :
                         WAR1_mem    ? bypass_mem    :
-                        WAR2_mem2   ? bypass_mem2   :
+                        WAR1_mem2   ? bypass_mem2   :
                         rs[rs1_id];
                 b_ex <= WAR2_ex     ? bypass_ex     :
                         WAR2_mem    ? bypass_mem    :
                         WAR2_mem2   ? bypass_mem2   :
                         rs[rs2_id];
+                // a_ex <= rs[rs1_id];
+                // b_ex <= rs[rs2_id];
 
                 imm_ex <= imm_id;
                 jump_en_ex <= jump_en_id;
@@ -205,6 +221,8 @@ module core_cpu (
     reg     id_clear;
     reg     ex_clear;
     reg     id_nop;
+    reg     ex_stall;
+    reg     mem_clear;
     always @(*) begin
         jump_taken_if = jump_taken_ex;
         jump_target_if = jump_target_ex;
@@ -214,7 +232,8 @@ module core_cpu (
         ex_clear = jump_taken_ex | branch_taken_ex | LAR | LAR2;
         id_nop = LAR | LAR2;
         nop_if = LAR | LAR2;
-
+        ex_stall = 1'b0;
+        mem_clear = 1'b0;
     end
 
     //数据旁路
@@ -234,7 +253,8 @@ module core_cpu (
     wire                WAR1_mem2;
     wire                WAR2_mem2;
     wire                LAR;
-    reg                 LAR2;
+    wire                LAR2;
+    wire                LAR3;
     wire    [31:0]      bypass_ex;
     wire    [31:0]      bypass_mem;
     wire    [31:0]      bypass_mem2;
@@ -245,7 +265,9 @@ module core_cpu (
     assign WAR2_mem = (rd_mem == rs2_id) & rd_en_mem & (~is_load_mem) & (rs2_id != 5'b0);
     assign WAR1_mem2 = (rd_mem2 == rs1_id) & rd_en_mem2 & (rs1_id != 5'b0); //包含load after read
     assign WAR2_mem2 = (rd_mem2 == rs2_id) & rd_en_mem2 & (rs2_id != 5'b0);
-    assign LAR = ((rd_ex == rs1_id & rs1_id != 5'b0) | (rd_ex == rs2_id & rs2_id != 5'b0)) & is_load_ex;
+    assign LAR = ((rd_ex == rs1_id & rs1_id != 5'b0) | (rd_ex == rs2_id & rs2_id != 5'b0 & rs2_en_id)) & is_load_ex;
+    assign LAR2 = ((rd_mem == rs1_id & rs1_id != 5'b0) | (rd_mem == rs2_id & rs2_id != 5'b0 & rs2_en_id)) & is_load_mem;
+    //assign LAR3 = ((rd_mem2 == rs1_id & rs1_id != 5'b0) | (rd_mem2 == rs2_id & rs2_id != 5'b0 & rs2_en_id)) & is_load_mem2;
     assign bypass_ex = wb_result_ex;
     assign bypass_mem = wb_result_mem;
     assign bypass_mem2 = wb_result_mem2;
@@ -260,26 +282,22 @@ module core_cpu (
         if (!rst_n) begin
             rd_ex <= 5'b0;
             rd_en_ex <= 1'b0;
-            rd_mem <= 5'b0;
-            rd_en_mem <= 1'b0;
-            rd_mem2 <= 5'b0;
-            rd_en_mem2 <= 1'b0;
             rs2_ex <= 5'b0;
             is_lui_ex <= 1'b0;
             is_auipc_ex <= 1'b0;
-            LAR2 <= 1'b0;
         end else begin
-            rd_mem <= rd_ex;
-            rd_en_mem <= rd_en_ex;
-            rd_mem2 <= rd_mem;
-            rd_en_mem2 <= rd_en_mem;
-            LAR2 <= LAR;
             if (ex_clear) begin
                 rd_ex <= 5'b0;
                 rd_en_ex <= 1'b0;
                 rs2_ex <= 5'b0;
                 is_lui_ex <= 1'b0;
                 is_auipc_ex <= 1'b0;
+            end else if (ex_stall) begin
+                rd_ex <= rd_ex;
+                rd_en_ex <= rd_en_ex;
+                rs2_ex <= rs2_ex;
+                is_lui_ex <= is_lui_ex;
+                is_auipc_ex <= is_auipc_ex;
             end else begin
                 rd_ex <= rd_id;
                 rd_en_ex <= rd_en_id;
@@ -292,7 +310,6 @@ module core_cpu (
 
 
     reg                 is_load_mem;
-    reg                 is_store_mem;
     reg     [31:0]      wb_result_mem;
 
     //MEM2阶段
@@ -310,7 +327,7 @@ module core_cpu (
     assign is_WAS2 = (rs2_ex == rd_mem2) & (is_store_ex) & rd_en_mem2 & (rs2_ex != 5'b0);
     assign  store_data_ex  = is_WAS ? bypass_mem : 
                              is_WAS2 ? bypass_mem2 : rs[rs2_ex];
-
+    // assign store_data_ex = rs[rs2_ex];
     assign  load_data_mem2 = perip_rdata;
     assign  perip_addr  =   alu_result_ex;
     assign  perip_wen   =   is_store_ex;
@@ -321,16 +338,29 @@ module core_cpu (
     always @(negedge rst_n or posedge clk) begin
         if (!rst_n) begin
             is_load_mem <= 1'b0;
-            is_store_mem <= 1'b0;
             wb_result_mem <= 32'b0;
+            rd_mem <= 5'b0;
+            rd_en_mem <= 1'b0;
+            rd_mem2 <= 5'b0;
+            rd_en_mem2 <= 1'b0;
             wb_result_mem_reg <= 32'b0;
             is_load_mem2 <= 1'b0;
         end else begin
-            is_load_mem <= is_load_ex;
-            is_store_mem <= is_store_ex; 
-            wb_result_mem <= wb_result_ex;
             wb_result_mem_reg <= wb_result_mem;
             is_load_mem2 <= is_load_mem;
+            rd_mem2 <= rd_mem;
+            rd_en_mem2 <= rd_en_mem;
+            if (mem_clear) begin
+                is_load_mem <= 1'b0;
+                wb_result_mem <= 32'b0;
+                rd_mem <= 5'b0;
+                rd_en_mem <= 1'b0;
+            end else begin
+                is_load_mem <= is_load_ex;
+                wb_result_mem <= wb_result_ex;
+                rd_mem <= rd_ex;
+                rd_en_mem <= rd_en_ex;
+            end
         end
     end
 

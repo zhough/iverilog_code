@@ -1,4 +1,5 @@
 "*.vcd" 
 "wave" 
 digital_twin2/
-JYD2025_Contest-rv32i/
+JYD2025_Contest-rv32i*/
+"*.ffs_db"

@@ -10,8 +10,6 @@ module perip_bridge (
 );
     localparam DRAM_ADDR_START = 32'h8010_0000;
     localparam DRAM_ADDR_END   = 32'h8013_FFFF;
-    localparam DRAM_ADDR_START1 = 32'h8010_0000;
-    localparam DRAM_ADDR_END1   = 32'h8013_FFFF;
     localparam SW0_ADDR  = 32'h8020_0000;  // sw[31:0]
     localparam SW1_ADDR  = 32'h8020_0004;  // sw[63:32]
     localparam KEY_ADDR  = 32'h8020_0010;  // key[7:0]
@@ -29,9 +27,10 @@ module perip_bridge (
         if (rst) begin
             perip_addr_reg <= 32'b0;
             perip_addr_reg2 <= 32'b0;
-        end else
+        end else begin
             perip_addr_reg <= perip_addr;
             perip_addr_reg2 <= perip_addr_reg;
+        end
     end
 
     dram_driver dram_driver_inst (
