@@ -1,0 +1,9 @@
+增加寄存器：
+mstatus
+mepc
+mtvec
+mcause
+
+增加译码指令支持zicsr，ecall, mret
+增加EX单元CSRU
+增加next_pc的选择可以被ecall和mret修改
